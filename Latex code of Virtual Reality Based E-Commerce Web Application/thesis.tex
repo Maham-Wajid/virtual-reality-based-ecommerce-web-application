@@ -1,0 +1,247 @@
+%% ----------------------------------------------------------------
+%% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
+%% ---------------------------------------------------------------- 
+
+% Set up the document
+\documentclass[a4paper, 11pt, oneside]{thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
+\graphicspath{{Figures/}}  % Location of the graphics files (set up for graphics to be in PDF format)
+\usepackage{caption}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+
+% Include any extra LaTeX packages required
+\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+\usepackage{ragged2e}
+\usepackage{float}
+\usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
+\setcounter{tocdepth}{5}
+\usepackage[table, svgnames, dvipsnames]{xcolor}
+\usepackage{longtable}
+\usepackage{makecell, cellspace, caption}
+\setlength\cellspacetoplimit{3pt}
+% \usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\makeatletter
+\newcommand\subsubsubsection{\@startsection{paragraph}{4}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+\newcommand\subsubsubsubsection{\@startsection{subparagraph}{5}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+\makeatother
+\usepackage{url}
+\usepackage{natbib}
+
+
+\hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
+
+% remove the unnecessary spacing before and after the headings/subheadings
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+\setlength{\parskip}{6pt}
+%\setlength{\parsep}{0pt}
+%\setlength{\headsep}{0pt}
+%\setlength{\topskip}{0pt}
+
+%% ----------------------------------------------------------------
+\begin{document}
+\frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
+
+% Set up the Title Page
+\title  {Virtual Reality Based E-Commerce Web Application}
+\session {2019-2022}
+\advisor {Dr. Amna Zafar}
+\coadvisor {Farwa Batool}
+\authors {
+Muhammad Ali Mazhar Butt ~~~ 2019-CS-224 \\
+			 Abdullah Rasheed ~~~ 2019-CS-246 \\
+			 Maham Wajid ~~~ 2019-CS-207\\
+    Ehtesham Haider ~~~ 2019-CS-218 
+    }
+
+\addresses  {\deptname \\ \univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
+\date       {\today}
+\subject    {}
+\keywords   {}
+
+\maketitle
+%% ----------------------------------------------------------------
+
+\setstretch{1.3}  % It is better to have smaller font and larger line spacing than the other way round
+
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{}  % Clears all page headers and footers
+\rhead{\thepage}  % Sets the right side header to show the page number
+\lhead{}  % Clears the left side page header
+
+\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+
+%% Select only one of the certification pages  
+%\CertificationMSc{}
+\CertificationBSc{}
+\clearpage  % Certification ended, now start a new page
+
+
+%% ----------------------------------------------------------------
+% Declaration Page required for the Thesis, your institution may give you a different text to place here
+\Declaration{
+%\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+We declare that the work contained in this thesis is our own, except where explicitly
+stated otherwise. In addition, this work has not been submitted to obtain another
+degree or professional qualification.
+\bigskip
+
+Signed:~~ \rule[0em]{10em}{1.0pt} \\ % This prints a line for the signature 
+Date:~~~~ \rule[0em]{10em}{1.0pt}  % This prints a line to write the date
+
+}
+\clearpage     % Declaration ended, now start a new page
+
+%% ----------------------------------------------------------------
+
+\setstretch{1.3}  % Reset the line-spacing to 1.3 for body text (if it has changed)
+
+% The Acknowledgements page, for thanking everyone
+\acknowledgements{
+%\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+
+First and foremost, we would like to praise Almighty Allah, the Most Gracious, and
+the Most Merciful for His blessing given to us during our study and in completing
+this project.
+It gives us great pleasure to express our sincere gratitude and respect to our supervisor,
+Dr.Amna Zafar, and co-supervisor Farwa Batool, for their patient
+guidance, and enthusiastic encouragement, and for boosting our morale through all the
+stages of this work. We could not have made it through without their constructive
+suggestions, continuous support, and efforts. We would also like to appreciate the
+Department of Computer Science, UET Lahore, and its staff for providing us with
+an opportunity to work on and complete this project.
+Finally, we would like to give special thanks to our parents for their genuine affection
+and encouragement. It would not have been possible without their consistent
+support and prayers for us.\ldots
+
+}
+\clearpage  % End of the Acknowledgements
+
+%% ----------------------------------------------------------------
+% End of the pre-able, contents and lists of things
+% Begin the Dedication page
+\setstretch{1.3}  % Return the line spacing back to 1.3
+\pagestyle{empty}  % Page style needs to be empty for this page
+\dedicatory{Dedicated to Allah Almighty for His blessings and
+benevolence. We would also like to dedicate this project
+and Final Year Project to our supportive families, and
+friends who stood by us in times of need.\ldots}
+
+
+%% ----------------------------------------------------------------
+\pagestyle{fancy}  %The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+%% ----------------------------------------------------------------
+\lhead{\emph{Contents}}  % Set the left side page header to "Contents"
+\tableofcontents  % Write out the Table of Contents
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Figures}}  % Set the left side page header to "List if Figures"
+\listoffigures  % Write out the List of Figures
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Tables}}  % Set the left side page header to "List of Tables"
+\listoftables  % Write out the List of Tables
+
+%% ----------------------------------------------------------------
+\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+\clearpage  % Start a new page
+\lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
+\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
+{
+% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+\textbf{VR} & \textbf{V}irtual \textbf{R}eality \\
+\textbf{AR} & \textbf{A}ugmented \textbf{R}eality \\
+\textbf{SDK} & \textbf{S}oftware \textbf{D}Development \textbf{K}it\\
+\textbf{FR} & \textbf{F}unction \textbf{R}equirements\\
+\textbf{NFR} & \textbf{N}on \textbf{F}unctional \textbf{R}equirements\\
+}
+
+%% ----------------------------------------------------------------
+% The Abstract Page
+\addtotoc{Abstract}  % Add the "Abstract" page entry to the Contents
+\abstract{
+%\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+
+ The Virtual Reality-based E-commerce Web Application is an advanced website inspired
+by the meta verse concept. The unique thing about this web application is that it provides
+virtual reality mode to the customer so that the customers can experience the real-time feeling of the e-commerce store if they have VR headsets. Without a VR headset, they
+can visit the website and can also do a 3d virtual tour of the store. On the basis of
+user body measurement inputs, we are also providing the best suggestion for the size
+that will fit the customer's body. Other than these major functionalities this application is
+delivering advanced features to the customers like advanced searching, User-friendly navigation,
+Advanced Searching, Product Filtering, Latest news section in which the latest
+discount and sales will be displayed to the customer, Conversion of currencies to different
+country’s currencies etc.\
+
+}
+\clearpage 
+\thispagestyle{plain}
+% Abstract ended, start a new page
+\addtotoc{Executive Summary}
+\begin{center}
+{\huge \textbf{Executive Summary} \par}
+\end{center}
+Online shopping has become a major trend nowadays. Customers prefer it rather than going shopping physically as it is less costly and less time-consuming. That is why many shopping stores are going digital and enabling E-commerce features in their setup. However, customers face issues and satisfaction is less while shopping online as they cannot see how the product might look in reality. All they see is a 2d image, description, and reviews of previous customers. Showing 3d models of the products in the virtually created store which can be accessed through VR headsets can make the customers feel as if they are shopping physically. Metaverse concepts are used for this application. So Virtual reality-based E-Commerce store is created that would provide a positive and realistic experience to the customers in the metaverse. The core technology is virtual reality.
+First, we create a basic E-commerce website named MetaMart with all related features and functionalities. Then 3d tour and VR mode that is created in Unity 3D is integrated with the website. For VR mode, an oculus headset is required. Initially in the application, garments, and outerwear will be the main products. 3D garments will be placed upon avatars with customized measurements so that customers can map them to themselves and choose the best suitable one. In this way, customers can explore MetaMart with virtual reality functionalities so that they can experience this innovative way of buying products satisfactorily by roaming around the store and viewing products that are mostly garments in 3D view and exploring the latest Metaverse technology in the application.
+\clearpage  % Executive summary, start a new page
+%% ----------------------------------------------------------------
+\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
+\pagestyle{fancy}  % Return the page headers back to the "fancy" style
+\onehalfspacing
+% Include the chapters of the thesis, as separate files
+% Just uncomment the lines as you write the chapters
+
+\input{./Chapters/Chapter1} % Introduction 
+\input{./Chapters/Chapter2} % What to Write 
+\input{./Chapters/Chapter3} %
+\input{./Chapters/Chapter4} %
+\input{./Chapters/Chapter5} %
+\input{./Chapters/Chapter6} %
+%\input{./Chapters/Chapter3} % Experimental Setup
+
+%\input{./Chapters/Chapter4} % Experiment 1
+
+%\input{./Chapters/Chapter5} % Experiment 2
+
+%\input{./Chapters/Chapter6} % Results and Discussion
+
+%\input{./Chapters/Chapter7} % Conclusion
+
+%% ----------------------------------------------------------------
+% Now begin the Appendices, including them as separate files
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+\input{./Chapters/AppendixA}	% Appendix Title
+
+%\input{./Chapters/AppendixB} % Appendix Title
+
+%\input{./Chapters/AppendixC} % Appendix Title
+
+\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
+\backmatter
+
+%% ----------------------------------------------------------------
+\label{References}
+\lhead{\emph{References}}  % Change the left side page header to "References"
+
+%\bibliographystyle{plainnat}   Use "unsrtnat" BibTeX style for formatting the references
+\bibliographystyle{IEEEtran}
+\bibliography{references}  % The reference information are stored in the file named "references.bib"
+
+\end{document}  % The End
+%% ----------------------------------------------------------------

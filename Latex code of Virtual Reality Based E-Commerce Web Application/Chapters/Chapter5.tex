@@ -1,0 +1,295 @@
+% Chapter 5
+\newpage
+\begingroup%
+\makeatletter%
+\let\clearpage\relax% Stop LaTeX from going to a new page; and
+\vspace*{\fill}%
+\vspace*{\dimexpr-50\p@-\baselineskip}% Remove the initial (default) 50pt gap (plus 1 line)
+\chapterfont{\centering}
+\chapter{Evaluation Criteria}
+\vspace*{\fill}%
+\endgroup
+
+\newpage
+\label{Chapter1}
+\lhead{Chapter 5. \emph{Evaluation Criteria}} % Write in your own chapter title to set the page header
+
+\section{TS-1: User Registration Functionality (Customer)}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item User is successfully registered and approved by admin.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.3cm}| m{2cm} | m{2cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Enter all valid credentials & Successful registration, and “successfully registered message” displayed. & Successful registration, and “successfully registered message” displayed. & Ali & Pass
+  \\  \hline
+  \textbf{TC-2} & Enter invalid username & Register button should be disable. & Register button disabled. & Ali & Pass
+  \\  \hline
+  \textbf{TC-3} & Enter invalid email & Register button should be disable. & Register button disabled. & Ali & Pass
+  \\  \hline
+  \textbf{TC-2} & Enter invalid password & Register button should be disable. & Register button disabled. & Ali & Pass
+  \\  \hline
+  \textbf{TC-2} & Enter invalid contact info & Register button should be disable. & Register button disabled. & Ali & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-1 Results}
+    \label{tab: Test Scenario TS-1 Results}
+\end{table}
+
+\section{TS-2: User Login Functionality}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item User is already registered and approved by admin (except admin).
+  \item User is identified and authenticated.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item User is successfully logged into the system.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.3cm}| m{2cm} | m{2cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Enter all valid credentials & Successful logged in, and “logged in successfully” message should displayed. & Successful logged in, and “logged in successfully” message is displayed. & Ali & Pass
+  \\  \hline
+  \textbf{TC-2} & Enter invalid username & Login button should be disable. & Login button disabled. & Ali & Pass
+  \\  \hline
+  \textbf{TC-3} & Enter invalid pass & Login button should be disable. & Login button disabled. & Ali & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-2 Results}
+    \label{tab: Test Scenario TS-2 Results}
+\end{table}
+
+\section{TS-3: Manage Product Functionality (Admin)}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Admin must be logged in to the system.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Admin has access to all functionalities to manage products.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.3cm}| m{3.3cm} | m{3.3cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Adding new product with valid details & Successful add new product, and “product added successfully” message should display. & Successful add new product, and “product added successfully” message displayed. & Ehtesham & Pass
+  \\  \hline
+  \textbf{TC-2} & Adding new product with any invalid detail & Add button should be disabled. & Add button disabled. & Ehtesham & Pass
+  \\  \hline
+  \textbf{TC-3} & Entering valid ID to Delete/Remove any unwanted product & Deleted successfully, a “product removed successfully” message should be displayed, and redirects admin to the dashboard main section. & Deleted successfully, a “product removed successfully” message should be displayed, and redirects admin to the dashboard main section. & Ehtesham & Pass
+  \\  \hline
+  \textbf{TC-4} & Entering invalid ID to Delete/Remove any unwanted product & “Incorrect product ID”/ “Product id does not exist” error message should display. & “Incorrect product ID”/ “Product id does not exist” error message is displayed. & Ehtesham & Pass
+  \\  \hline
+  \textbf{TC-5} & Entering valid ID to search product & Product should display successfully & Product displayed successfully. & Ehtesham & Pass
+  \\  \hline
+  \textbf{TC-6} & Entering invalid ID to search product & “Incorrect product ID”/ “Product id does not exist” error message should display. & “Incorrect product ID”/ “Product id does not exist” error message is displayed. & Ehtesham & Pass
+  \\  \hline
+  \textbf{TC-7} & Update any product with valid details & Successfully update product, and “product updated successfully” message should display. & Successfully update product, and “product updated successfully” message is displayed. & Ehtesham & Pass
+  \\  \hline
+  \textbf{TC-8} & Update any product with any invalid details & Update button should remain disable. & Update button remain disable. & Ehtesham & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-3 Results}
+    \label{tab: Test Scenario TS-3 Results}
+\end{table}
+
+\section{TS-4: Manage Customize orders Functionality (Admin)}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Admin must be logged in to the system.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Admin has access to manage customized orders of customers.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.5cm}| m{2.7cm} | m{2.7cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Checking customers customized orders’ requests. & All customize orders’ request should displayed. & All customize orders’ request are displayed. & Ali & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-4 Results}
+    \label{tab: Test Scenario TS-4 Results}
+\end{table}
+
+
+\section{TS-5: Manage Profile Functionality}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Customer must be registered.
+  \item Customer must be authenticated and identified.
+  \item Customer must be logged in to the system.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Customer Profile will get updated.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.3cm}| m{3cm} | m{3cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Update profile with valid details & Successfully update profile, and “profile updated successfully” message should display. & Successfully update profile, and “profile updated successfully” message is display. & Abdullah & Pass
+  \\  \hline
+  \textbf{TC-2} & Update profile with invalid details & Update button should remain disable. & Update button remain disable. & Abdullah & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-5 Results}
+    \label{tab: Test Scenario TS-5 Results}
+\end{table}
+
+\section{TS-6: Virtual Tour Functionality (customer)}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Customer must be registered.
+  \item Customer must be authenticated and identified.
+  \item Customer must be logged in to the system.
+  \item Customer must have entered in virtual tour mode.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Customer can experience all real time shopping functionalities.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.3cm}| m{3cm} | m{3cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Experiencing virtual tour without any issue & Virtual view of mall and functionalities should be visible to the user. & Virtual view of mall and functionalities is visible to the user. & Maham & Pass
+  \\  \hline
+  \textbf{TC-2} & Experiencing virtual tour with any issue & Virtual view of mall should not be visible to the user, and appropriate error message should be displayed. & Virtual view of mall is not visible to the user, and appropriate error message is displayed. & Maham & Pass
+  \\  \hline
+  \textbf{TC-3} & Visit virtual store & Customer’s avatar should roam around the virtual store to take a tour. & Customer’s avatar can take the tour of virtual store. & Maham & Pass
+  \\  \hline
+  \textbf{TC-4} & Showing Jackets details & Jackets’ details should be popped up on triggering with the avatar. & Jackets’ details are popping on a panel when avatar is triggered with the any jacket. & Maham & Pass
+  \\  \hline
+  \textbf{TC-5} & Jackets Size Options & There should be four size displaying options available for jackets for 4 standard body sizes. & Options for 4 standard sizes jackets are available in the store with details. & Maham & Pass
+  \\  \hline
+  \textbf{TC-6} & Mannequin Avatar dynamic Size  & The avatar size should be change during run-time according to the customers’ selected jacket size. & The avatar size can be change during run-time according to the selected jacket size. & Maham & Pass
+  \\  \hline
+  \textbf{TC-7} & Add to cart  & Customers should add the choosed jackets to cart from virtual store also. & Customer can also add to cart the choosed items from the virtual store. & Maham & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-6 Results}
+    \label{tab: Test Scenario TS-6 Results}
+\end{table}
+
+\section{TS-7: Manage cart Functionality(customer)}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Customer must be registered.
+  \item Customer must be authenticated and identified.
+  \item Customer must be logged in to the system.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Customer can manage personal cart section.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.5cm}| m{2.7cm} | m{2.7cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Adding items to cart & Selected item should be added in the cart list and should stay even after logged out until gets removed or delivered. & Selected item gets added in the cart list and remain in list even after logged out until gets removed or delivered. & Abdullah & Pass
+  \\  \hline
+  \textbf{TC-2} & Updating cart items & Items added in the cart should get updated. & Cart items gets updated. & Abdullah & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-7 Results}
+    \label{tab: Test Scenario TS-7 Results}
+\end{table}
+
+\section{TS-8: Customize Order Request(customer)}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Customer must be registered.
+  \item Customer must be authenticated and identified.
+  \item Customer must be logged in to the system.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Customer can request for any customized order.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.5cm}| m{2.7cm} | m{2.7cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Adding customized order details & Customized order details should get added into the request section and notification should be sent to the admin. & Customized order details get add into the request section and notification has sent to the admin. & Maham & Pass
+  \\  \hline
+  \textbf{TC-2} & Checking response status from store service about customized order request. & The request status should be displayed in the request status. & The request status displays in the request status. & Maham & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-8 Results}
+    \label{tab: Test Scenario TS-8 Results}
+\end{table}
+
+\section{TS-9: Payment Section Functionality (customer)}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Customer must be registered.
+  \item Customer must be authenticated and identified.
+  \item Customer must be logged in to the system.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Customer can request for any customized order.
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.5cm}| m{2.7cm} | m{2.7cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Entering all valid credentials for payment & Payment gets done and “payment done successfully” message should display on screen. & Payment gets done and “payment done successfully” message displays on screen. & Ali & Pass
+  \\  \hline
+  \textbf{TC-2} & Entering any invalid credentials for payment & Payment proceeds button should remain disable. & Payment proceeds button remain disable. & Ali & Pass
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-9 Results}
+    \label{tab: Test Scenario TS-9 Results}
+\end{table}
+
+\section{TS-10: Product Rating Functionality (customer)}
+\subsection{Pre-Condition:}
+\begin{enumerate}
+  \item Customer must be registered.
+  \item Customer must be authenticated and identified.
+  \item Customer must be logged in to the system.
+  \item Customer must has already received that specific product.
+\end{enumerate}
+\subsection{Post-Condition:}
+\begin{enumerate}
+  \item Customer will be able to give rating about any received product. 
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+   \begin{tabular}{ | m{1cm} | m{2.5cm}| m{2.7cm} | m{2.7cm} | m{1.7cm} | m{1.3cm} |}  
+  \hline  \textbf{Test Case ID} &  \textbf{Description} &  \textbf{Expected Result} &  \textbf{Actual Result} &  \textbf{Executed By} &  \textbf{Status}  \\  \hline
+  \textbf{TC-1} & Rating received products & Rating should be added and a “Thank you!” message should be displayed. & Rating is added and a “Thank you!” message is displayed. & Ehtesham & Failed
+  \\  \hline
+  
+\end{tabular}
+    \caption{Test Scenario TS-10 Results}
+    \label{tab: Test Scenario TS-10 Results}
+\end{table}
+
+\justifying
